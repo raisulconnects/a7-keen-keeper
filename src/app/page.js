@@ -17,22 +17,22 @@ export default function Home() {
         </button>
         <div className="grid grid-cols-4 gap-4 mt-10 mx-auto max-w-4xl">
           <div className="bg-gray-100 rounded shadow py-6 px-5">
-            <h2 className="text-3xl font-bold mb-2 text-green-900">10</h2>
+            <h2 className="text-3xl font-bold mb-2 text-green-900">{friends.length}</h2>
             <p className="text-gray-600">Total Friends</p>
           </div>
 
           <div className="bg-gray-100 rounded shadow py-6 px-5">
-            <h2 className="text-3xl font-bold mb-2 text-green-900">3</h2>
+            <h2 className="text-3xl font-bold mb-2 text-green-900">{friends.filter(friend => friend.status === "on-track").length}</h2>
             <p className="text-gray-600">On Track</p>
           </div>
 
           <div className="bg-gray-100 rounded shadow py-6 px-5">
-            <h2 className="text-3xl font-bold mb-2 text-green-900">6</h2>
+            <h2 className="text-3xl font-bold mb-2 text-green-900">{friends.filter(friend => friend.status === "overdue").length}</h2>
             <p className="text-gray-600">Needs Attention</p>
           </div>
 
           <div className="bg-gray-100 rounded shadow py-6 px-5">
-            <h2 className="text-3xl font-bold mb-2 text-green-900">12</h2>
+            <h2 className="text-3xl font-bold mb-2 text-green-900">{friends.filter(friend => friend.status === "almost due").length}</h2>
             <p className="text-gray-600">Interactions This Month</p>
           </div>
         </div>
