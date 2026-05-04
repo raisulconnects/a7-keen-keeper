@@ -8,7 +8,7 @@ export default function Navbar() {
 
   const linkClass = (path) =>
     `flex gap-2 justify-center items-center px-3 py-2 rounded ${
-      pathname === path ? "bg-green-900 text-white" : ""
+      pathname === path ? "bg-green-900 text-white hover:bg-green-700 transition" : ""
     }`;
 
   return (
