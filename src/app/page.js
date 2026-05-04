@@ -1,3 +1,6 @@
+import friends from "@/../data/friends.json"; 
+import FriendCard from "@/app/Components/Friendcard";
+
 export default function Home() {
   return (
     <div>
@@ -35,6 +38,16 @@ export default function Home() {
         </div>
       </div>
       <hr className="my-10 border-gray-200 w-1/2 mx-auto" />
+
+      <div className="p-10 max-w-6xl mx-auto">
+        <h1 className="text-2xl font-bold mb-6">Your Friends</h1>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
+          {friends.map((friend) => (
+            <FriendCard key={friend.id} friend={friend} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
