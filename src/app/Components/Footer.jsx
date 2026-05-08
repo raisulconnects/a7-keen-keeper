@@ -1,17 +1,15 @@
 export default function Footer() {
   return (
-    <div className="bg-[#295943] text-white px-6 py-16">
+    <div className="bg-[#1a4431] text-white px-6 py-16">
       <div className="max-w-6xl mx-auto text-center">
-        {/* Title */}
+
         <h1 className="text-5xl font-bold mb-4">KeenKeeper</h1>
 
-        {/* Subtitle */}
         <p className="text-gray-200 max-w-2xl mx-auto mb-8">
           Your personal shelf of meaningful connections. Browse, tend, and
           nurture the relationships that matter most.
         </p>
 
-        {/* Social Links */}
         <h2 className="text-lg font-semibold mb-4">Social Links</h2>
 
         <div className="flex justify-center gap-4 mb-10">
@@ -26,10 +24,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="border-t border-green-700 mb-6"></div>
 
-        {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-200">
           <p>© 2026 KeenKeeper. All rights reserved.</p>
 

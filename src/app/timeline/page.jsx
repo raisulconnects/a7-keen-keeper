@@ -7,9 +7,10 @@ export default function Timeline() {
   const { timeline } = useTimelineContext();
   const [filter, setFilter] = useState("all");
 
-  const filteredTimeline = filter === "all" 
-    ? timeline 
-    : timeline.filter(entry => entry.type === filter);
+  const filteredTimeline =
+    filter === "all"
+      ? timeline
+      : timeline.filter((entry) => entry.type === filter);
 
   const formatDate = (timestamp) => {
     const date = new Date(timestamp);
@@ -54,7 +55,7 @@ export default function Timeline() {
               No activities yet. Start by checking in with a friend!
             </p>
           </div>
-        ) : filteredTimeline.length === 0 ? (
+        ) : filteredTimeline.length === 0 ? ( // Eita deya hoise jate after filteration, proper entry show kore.
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 text-center">
             <p className="text-gray-500">
               No {filter === "all" ? "" : filter} activities found.
@@ -69,7 +70,13 @@ export default function Timeline() {
               >
                 <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
                   <img
-                    src={entry.type === "call" ? "/call.png" : entry.type === "text" ? "/text.png" : "/video.png"}
+                    src={
+                      entry.type === "call"
+                        ? "/call.png"
+                        : entry.type === "text"
+                          ? "/text.png"
+                          : "/video.png"
+                    }
                     className="w-6 h-6"
                   />
                 </div>
@@ -82,7 +89,8 @@ export default function Timeline() {
                     </span>
                   </p>
                   <p className="text-sm text-gray-500">
-                    {formatDate(entry.timestamp)} at {formatTime(entry.timestamp)}
+                    {formatDate(entry.timestamp)} at{" "}
+                    {formatTime(entry.timestamp)}
                   </p>
                 </div>
               </div>

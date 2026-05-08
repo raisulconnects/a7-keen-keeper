@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
     >
       <TimelineContextProvider>
         <Navbar />
-        <body className="min-h-full flex flex-col">{children}</body>
+        <body className="flex flex-col">{children}</body>
         <Footer />
         <ToastContainer position="bottom-right" />
       </TimelineContextProvider>
