@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#295943] text-white px-6 py-16">
+    <div className="bg-[#295943] text-white px-6 py-16">
       <div className="max-w-6xl mx-auto text-center">
         {/* Title */}
         <h1 className="text-5xl font-bold mb-4">KeenKeeper</h1>
@@ -34,12 +34,12 @@ export default function Footer() {
           <p>© 2026 KeenKeeper. All rights reserved.</p>
 
           <div className="flex gap-6 mt-4 md:mt-0">
-           <p className="cursor-pointer">Privacy and Policy</p>
+            <p className="cursor-pointer">Privacy and Policy</p>
             <p className="cursor-pointer">Terms of Service</p>
             <p className="cursor-pointer">Cookies</p>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 }
