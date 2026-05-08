@@ -1,8 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import { TimelineContextProvider } from "./context/TimelineContext";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +31,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <body className="min-h-full flex flex-col">{children}</body>
         <Footer />
+        <ToastContainer position="bottom-right" />
       </TimelineContextProvider>
     </html>
   );

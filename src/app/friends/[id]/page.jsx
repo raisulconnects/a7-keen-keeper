@@ -1,7 +1,14 @@
-import friends from "@/../data/friends.json";
+"use client";
 
-export default async function FriendDetailPage({ params }) {
-  const { id } = await params;
+import friends from "@/../data/friends.json";
+import { useTimelineContext } from "@/app/context/TimelineContext";
+import { useParams } from "next/navigation";
+import { toast } from "react-toastify";
+
+export default function FriendDetailPage() {
+  const params = useParams();
+  const { addTimelineEntry } = useTimelineContext();
+  const id = params.id;
   const friend = friends.find((f) => f.id === parseInt(id));
 
   if (!friend) {
@@ -9,6 +16,33 @@ export default async function FriendDetailPage({ params }) {
       <div className="p-10 text-gray-500 text-center">Friend not found</div>
     );
   }
+
+  const handleCall = () => {
+    addTimelineEntry({
+      type: "call",
+      friendName: friend.name,
+      action: "Call with",
+    });
+    toast(`Call with ${friend.name}`);
+  };
+
+  const handleText = () => {
+    addTimelineEntry({
+      type: "text",
+      friendName: friend.name,
+      action: "Text with",
+    });
+    toast(`Text with ${friend.name}`);
+  };
+
+  const handleVideo = () => {
+    addTimelineEntry({
+      type: "video",
+      friendName: friend.name,
+      action: "Video with",
+    });
+    toast(`Video with ${friend.name}`);
+  };
 
   return (
     <div className="bg-gray-50 min-h-screen p-6 md:p-10 font-sans">
@@ -170,7 +204,7 @@ export default async function FriendDetailPage({ params }) {
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <button className="border border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition group text-gray-600 hover:text-gray-900 cursor-pointer">
+              <button onClick={handleCall} className="border border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition group text-gray-600 hover:text-gray-900 cursor-pointer">
                 <img
                   src="/call.png"
                   alt="Call"
@@ -179,7 +213,7 @@ export default async function FriendDetailPage({ params }) {
                 <span className="text-sm font-medium">Call</span>
               </button>
 
-              <button className="border border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition group text-gray-600 hover:text-gray-900 cursor-pointer">
+              <button onClick={handleText} className="border border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition group text-gray-600 hover:text-gray-900 cursor-pointer">
                 <img
                   src="/text.png"
                   alt="Text"
@@ -188,7 +222,7 @@ export default async function FriendDetailPage({ params }) {
                 <span className="text-sm font-medium">Text</span>
               </button>
 
-              <button className="border border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition group text-gray-600 hover:text-gray-900 cursor-pointer">
+              <button onClick={handleVideo} className="border border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition group text-gray-600 hover:text-gray-900 cursor-pointer">
                 <img
                   src="/video.png"
                   alt="Video"
